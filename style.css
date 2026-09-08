@@ -70,3 +70,95 @@ body {
     color: #95a5a6;
     font-style: italic;
 }
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+header h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Requirement 4: Button cursor pointer */
+button {
+  padding: 10px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+/* Requirement 1: Table Styling */
+table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* ===================================================
+   Requirement 5: Advanced CSS Selectors Applied
+   =================================================== */
+
+/* 1. Descendant Selector */
+.expenses-section td {
+  font-size: 0.95rem;
+}
+
+/* 2. Direct Child Selector */
+.add-expense-section > form {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* 3. Position-based Pseudo-class (Requirement 1 & 5) */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* 4. Focus State */
+input:focus, select:focus {
+  outline: 2px solid #2e7d32;
+  background-color: #e8f5e9;
+}
+
+/* 5. Negation Pseudo-class */
+input:not([type="button"]) {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* Requirement 4: Table Row Hover Interaction */
+tbody tr:hover {
+  background-color: #e0f2f1;
+}
