@@ -1,93 +1,150 @@
+/* Import Google Fonts (Poppins for headings, Inter for body text) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
 
-/* Base Styles */
+/* Color Palette & Global Reset */
+:root {
+  --primary-color: #2563eb;       /* Vibrant Blue */
+  --primary-hover: #1d4ed8;      /* Darker Blue for buttons */
+  --bg-color: hsl(347, 87%, 42%);           /* Light soft grey/blue background */
+  --card-bg: #ffffff;            /* White for content cards */
+  --text-main: #1e293b;          /* Dark slate for main text */
+  --text-muted: #64748b;         /* Muted grey for labels/subtext */
+  --border-color: #e2e8f0;       /* Light border line */
+  --table-alt: hsl(210, 89%, 47%);          /* Alternating row color */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f4f6f8;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  padding: 40px 20px;
+}
+/* Main Page Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-header h1 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Page Heading Card */
+header, .page-heading {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  gap: 10px;
-  margin-bottom: 20px;
+/* Add Expense Form Card */
+form, .expense-form-card {
+  background-color: var(--card-bg);
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Requirement 4: Button cursor pointer */
-button {
-  padding: 10px;
-  background-color: #2e7d32;
-  color: white;
+/* Expense Table Card */
+.table-container, .expense-table-card {
+  background-color: var(--card-bg);
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+h1, h2, h3, .heading-text {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+label, p, span, input, button {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: hsl(283, 81%, 47%);
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+button, input[type="submit"] {
+  background-color: var(--primary-color);
+  color: rgb(184, 15, 15);
+  font-weight: 600;
+  padding: 10px 20px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
 }
 
-button:hover {
-  background-color: #1b5e20;
+button:hover, input[type="submit"]:hover {
+  background-color: var(--primary-hover);
 }
-
-/* Requirement 1: Table Styling */
 table {
   width: 100%;
-  max-width: 600px;
   border-collapse: collapse;
-  margin-top: 10px;
+  text-align: left;
+  margin-top: 8px;
 }
 
 th, td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
+  padding: 12px 16px;
+  font-size: 0.925rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
-thead th {
-  background-color: #2e7d32;
-  color: white;
+th {
+  background-color: var(--table-alt);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--text-main);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
-/* ===================================================
-   Requirement 5: Advanced CSS Selectors Applied
-   =================================================== */
-
-/* 1. Descendant Selector */
-.expenses-section td {
-  font-size: 0.95rem;
-}
-
-/* 2. Direct Child Selector */
-.add-expense-section > form {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-/* 3. Position-based Pseudo-class (Requirement 1 & 5) */
+/* Alternating Row Colors */
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: var(--table-alt);
 }
 
-/* 4. Focus State */
-input:focus, select:focus {
-  outline: 2px solid #2e7d32;
-  background-color: #e8f5e9;
-}
-
-/* 5. Negation Pseudo-class */
-input:not([type="button"]) {
-  border: 1px solid #ccc;
-  padding: 8px;
-}
-
-/* Requirement 4: Table Row Hover Interaction */
 tbody tr:hover {
-  background-color: #e0f2f1;
+  background-color: #1a8006;
 }
